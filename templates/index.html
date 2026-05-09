@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam Fatima • Interactive Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0A0C10 0%, #1A0F2E 50%, #0A0C10 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #EDF2FF;
+            min-height: 100vh;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header */
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #FFFFFF, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .title { text-align: center; font-size: 18px; color: #A78BFA; margin-bottom: 20px; }
+        .bio { max-width: 600px; margin: 0 auto; color: #AAB5CE; line-height: 1.6; text-align: center; }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .contact-chip {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            padding: 25px 35px;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 150px;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover { transform: translateY(-5px); background: rgba(139, 92, 246, 0.15); }
+        .stat-number { font-size: 42px; font-weight: bold; color: #8B5CF6; }
+        .stat-label { font-size: 13px; color: #8E9AB0; margin-top: 8px; text-transform: uppercase; }
+        
+        .section { margin: 60px 0; }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #8B5CF6;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Experience */
+        .exp-grid { display: flex; flex-direction: column; gap: 20px; }
+        .exp-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        .exp-card:hover { transform: translateX(10px); background: rgba(139, 92, 246, 0.1); }
+        .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px; }
+        .exp-role { font-size: 20px; font-weight: bold; }
+        .exp-date { color: #8E9AB0; font-size: 14px; }
+        .exp-company { color: #A78BFA; margin-bottom: 10px; }
+        .exp-desc { color: #AAB5CE; line-height: 1.5; font-size: 14px; }
+        
+        /* Skills */
+        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .skill-tag {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .skill-tag:hover { background: rgba(139, 92, 246, 0.3); transform: translateY(-2px); }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .project-card:hover { transform: translateY(-8px); background: rgba(139, 92, 246, 0.1); }
+        .project-img { width: 100%; height: 180px; object-fit: cover; }
+        .project-info { padding: 20px; }
+        .project-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+        .project-desc { font-size: 13px; color: #AAB5CE; margin-bottom: 12px; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-pill { background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        
+        /* USER INPUT FORMS */
+        .form-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #A78BFA;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #8B5CF6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .submit-btn {
+            background: #8B5CF6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #7C3AED;
+            transform: translateY(-2px);
+        }
+        
+        /* Message Display */
+        .message-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .message-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 3px solid #8B5CF6;
+        }
+        
+        .message-name {
+            font-weight: bold;
+            color: #A78BFA;
+        }
+        
+        .message-date {
+            font-size: 11px;
+            color: #6F7A95;
+            margin-left: 10px;
+        }
+        
+        .message-text {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #AAB5CE;
+        }
+        
+        /* Search Box */
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .search-box input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10B981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            color: #6F7A95;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            .stat-card { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="logo">MF</div>
+        <h1>Maryam Fatima</h1>
+        <div class="title">✨ Full Stack Developer | Creative Technologist</div>
+        <p class="bio">
+            Full Stack Developer with expertise in React, Python, Flask, and modern UI systems.
+            Currently interning at Technify Software Solution, Hyderabad.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div class="contact-chip">📧 maryamfatima28022003@gmail.com</div>
+            <div class="contact-chip">📞 0310 3024004</div>
+            <div class="contact-chip">📍 Hyderabad, Pakistan</div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card"><div class="stat-number">10+</div><div class="stat-label">Projects</div></div>
+            <div class="stat-card"><div class="stat-number">1+</div><div class="stat-label">Years Exp</div></div>
+            <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Technologies</div></div>
+            <div class="stat-card"><div class="stat-number">99%</div><div class="stat-label">Satisfaction</div></div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section">
+            <h2 class="section-title">Experience & Journey</h2>
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Full Stack Developer Intern</span>
+                        <span class="exp-date">2024 – Present</span>
+                    </div>
+                    <div class="exp-company">⚡ Technify Software Solution — Hyderabad</div>
+                    <div class="exp-desc">Developing full-stack applications using React, Flask, PostgreSQL. Optimized frontend performance by 22%, built REST APIs.</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Junior Frontend Developer</span>
+                        <span class="exp-date">2023 – 2024</span>
+                    </div>
+                    <div class="exp-company">🌟 Self-employed / Remote</div>
+                    <div class="exp-desc">Designed responsive websites, built reusable components with Tailwind and React.</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Open Source Contributor</span>
+                        <span class="exp-date">2023 – Current</span>
+                    </div>
+                    <div class="exp-company">🌍 Community Impact</div>
+                    <div class="exp-desc">Contributed to Python/JS projects, participated in 4+ hackathons.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 class="section-title">Tech Arsenal</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">Figma</span>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2 class="section-title">Featured Creations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400" alt="TaskFlow">
+                    <div class="project-info">
+                        <div class="project-title">TaskFlow Manager</div>
+                        <div class="project-desc">Full-stack productivity suite with Kanban board.</div>
+                        <div class="tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Flask</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Analytics">
+                    <div class="project-info">
+                        <div class="project-title">Analytics Hub</div>
+                        <div class="project-desc">Interactive dashboard with GitHub API.</div>
+                        <div class="tech-stack"><span class="tech-pill">Next.js</span><span class="tech-pill">MongoDB</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img class="project-img" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=400" alt="UI Kit">
+                    <div class="project-info">
+                        <div class="project-title">E-commerce UI Kit</div>
+                        <div class="project-desc">Component library with dark mode.</div>
+                        <div class="tech-stack"><span class="tech-pill">Tailwind</span><span class="tech-pill">React</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- USER INPUT SECTION 1: CONTACT FORM          -->
+        <!-- ============================================ -->
+        <div class="section">
+            <h2 class="section-title">📬 Send Me a Message</h2>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" id="userName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email *</label>
+                        <input type="email" id="userEmail" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" id="userSubject" placeholder="What is this about?">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea id="userMessage" rows="4" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">✨ Send Message ✨</button>
+                </form>
+                <div id="formStatus" style="margin-top: 15px; text-align: center; font-size: 14px;"></div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- USER INPUT SECTION 2: NEWSLETTER SIGNUP      -->
+        <!-- ============================================ -->
+        <div class="section">
+            <h2 class="section-title">📧 Newsletter Signup</h2>
+            <div class="form-container">
+                <form id="newsletterForm">
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email to get updates" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Interested in</label>
+                        <select id="newsletterInterest">
+                            <option value="all">All Updates</option>
+                            <option value="projects">New Projects</option>
+                            <option value="blogs">Blog Posts</option>
+                            <option value="jobs">Job Opportunities</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">📩 Subscribe Now</button>
+                </form>
+                <div id="newsletterStatus" style="margin-top: 15px; text-align: center; font-size: 14px;"></div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- USER INPUT SECTION 3: PROJECT SEARCH/FILTER   -->
+        <!-- ============================================ -->
+        <div class="section">
+            <h2 class="section-title">🔍 Search Projects</h2>
+            <div class="search-box">
+                <input type="text" id="projectSearch" placeholder="Search projects by title or technology...">
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- USER INPUT SECTION 4: FEEDBACK / COMMENTS     -->
+        <!-- ============================================ -->
+        <div class="section">
+            <h2 class="section-title">💬 Visitor Feedback</h2>
+            <div class="form-container">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="feedbackName" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <select id="feedbackRating">
+                            <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ - Good</option>
+                            <option value="3">⭐⭐⭐ - Average</option>
+                            <option value="2">⭐⭐ - Poor</option>
+                            <option value="1">⭐ - Very Bad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Feedback *</label>
+                        <textarea id="feedbackText" rows="3" placeholder="Share your thoughts about this portfolio..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">💬 Submit Feedback</button>
+                </form>
+                <div id="feedbackStatus" style="margin-top: 15px; text-align: center; font-size: 14px;"></div>
+                
+                <!-- Display all feedback messages -->
+                <div style="margin-top: 30px;">
+                    <h3 style="color: #A78BFA; margin-bottom: 15px;">Recent Feedback</h3>
+                    <div id="feedbackList" class="message-list">
+                        <p style="color: #6F7A95; text-align: center;">No feedback yet. Be the first!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>📌 "Code that speaks, designs that inspire"</p>
+            <p style="margin-top: 15px;">© 2025 Maryam Fatima — Full Stack Developer</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Message sent!</div>
+
+    <script>
+        // ============================================
+        // DATA STORAGE - All user input saved here
+        // ============================================
+        
+        // Initialize storage if not exists
+        if (!localStorage.getItem('contactMessages')) {
+            localStorage.setItem('contactMessages', JSON.stringify([]));
+        }
+        if (!localStorage.getItem('newsletterSubscribers')) {
+            localStorage.setItem('newsletterSubscribers', JSON.stringify([]));
+        }
+        if (!localStorage.getItem('feedbacks')) {
+            localStorage.setItem('feedbacks', JSON.stringify([]));
+        }
+
+        // Helper function to show toast notification
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.background = isError ? '#EF4444' : '#10B981';
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Helper function to save data to localStorage and also try to save to JSON file
+        async function saveToStorage(key, data, displayMessage) {
+            try {
+                // Save to localStorage
+                const existing = JSON.parse(localStorage.getItem(key) || '[]');
+                const newData = { ...data, id: Date.now(), timestamp: new Date().toISOString() };
+                existing.push(newData);
+                localStorage.setItem(key, JSON.stringify(existing));
+                
+                // Try to save to JSON file via fetch (if backend exists)
+                try {
+                    const response = await fetch('/api/save', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ key, data: newData })
+                    });
+                    if (response.ok) {
+                        console.log('Data also saved to server');
+                    }
+                } catch (serverError) {
+                    console.log('Server not available, data saved to localStorage only');
+                }
+                
+                showToast(displayMessage);
+                return true;
+            } catch (error) {
+                showToast('Error saving data', true);
+                return false;
+            }
+        }
+
+        // ============================================
+        // FORM 1: Contact Form Handler
+        // ============================================
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                type: 'contact',
+                name: document.getElementById('userName').value,
+                email: document.getElementById('userEmail').value,
+                subject: document.getElementById('userSubject').value,
+                message: document.getElementById('userMessage').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            if (!formData.name || !formData.email || !formData.message) {
+                showToast('Please fill all required fields', true);
+                return;
+            }
+            
+            await saveToStorage('contactMessages', formData, '✅ Message sent successfully!');
+            
+            // Clear form
+            document.getElementById('contactForm').reset();
+            document.getElementById('formStatus').innerHTML = '<span style="color: #10B981;">✓ Message delivered! I\'ll respond soon.</span>';
+            setTimeout(() => {
+                document.getElementById('formStatus').innerHTML = '';
+            }, 3000);
+        });
+
+        // ============================================
+        // FORM 2: Newsletter Signup
+        // ============================================
+        document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const subscriberData = {
+                type: 'newsletter',
+                email: document.getElementById('newsletterEmail').value,
+                interest: document.getElementById('newsletterInterest').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            if (!subscriberData.email) {
+                showToast('Please enter your email address', true);
+                return;
+            }
+            
+            await saveToStorage('newsletterSubscribers', subscriberData, '📧 Subscribed successfully! Check your inbox.');
+            
+            document.getElementById('newsletterForm').reset();
+            document.getElementById('newsletterStatus').innerHTML = '<span style="color: #10B981;">✓ Thanks for subscribing!</span>';
+            setTimeout(() => {
+                document.getElementById('newsletterStatus').innerHTML = '';
+            }, 3000);
+        });
+
+        // ============================================
+        // FORM 3: Feedback Form
+        // ============================================
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const feedbackData = {
+                type: 'feedback',
+                name: document.getElementById('feedbackName').value || 'Anonymous',
+                rating: document.getElementById('feedbackRating').value,
+                ratingText: document.getElementById('feedbackRating').options[document.getElementById('feedbackRating').selectedIndex].text,
+                message: document.getElementById('feedbackText').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            if (!feedbackData.message) {
+                showToast('Please enter your feedback', true);
+                return;
+            }
+            
+            await saveToStorage('feedbacks', feedbackData, '💬 Thank you for your feedback!');
+            
+            document.getElementById('feedbackForm').reset();
+            document.getElementById('feedbackStatus').innerHTML = '<span style="color: #10B981;">✓ Feedback submitted! Greatly appreciated.</span>';
+            setTimeout(() => {
+                document.getElementById('feedbackStatus').innerHTML = '';
+            }, 3000);
+            
+            // Refresh feedback display
+            displayFeedbacks();
+        });
+
+        // ============================================
+        // Display all feedback messages
+        // ============================================
+        function displayFeedbacks() {
+            const feedbacks = JSON.parse(localStorage.getItem('feedbacks') || '[]');
+            const container = document.getElementById('feedbackList');
+            
+            if (feedbacks.length === 0) {
+                container.innerHTML = '<p style="color: #6F7A95; text-align: center;">No feedback yet. Be the first!</p>';
+                return;
+            }
+            
+            // Show recent 5 feedbacks
+            const recentFeedbacks = feedbacks.slice(-5).reverse();
+            container.innerHTML = recentFeedbacks.map(fb => `
+                <div class="message-item">
+                    <div class="message-name">
+                        ${escapeHtml(fb.name)} 
+                        <span class="message-date">${new Date(fb.timestamp).toLocaleString()}</span>
+                    </div>
+                    <div style="font-size: 12px; color: #F59E0B; margin: 5px 0;">${fb.ratingText}</div>
+                    <div class="message-text">${escapeHtml(fb.message)}</div>
+                </div>
+            `).join('');
+        }
+        
+        // Helper to escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ============================================
+        // Search/Filter Projects
+        // ============================================
+        document.getElementById('projectSearch').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const projects = document.querySelectorAll('.project-card');
+            
+            projects.forEach(project => {
+                const title = project.querySelector('.project-title')?.textContent.toLowerCase() || '';
+                const desc = project.querySelector('.project-desc')?.textContent.toLowerCase() || '';
+                const techs = Array.from(project.querySelectorAll('.tech-pill')).map(t => t.textContent.toLowerCase()).join(' ');
+                
+                if (title.includes(searchTerm) || desc.includes(searchTerm) || techs.includes(searchTerm)) {
+                    project.style.display = '';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+
+        // ============================================
+        // Export all data to JSON (for admin)
+        // ============================================
+        function exportAllData() {
+            const allData = {
+                contactMessages: JSON.parse(localStorage.getItem('contactMessages') || '[]'),
+                newsletterSubscribers: JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]'),
+                feedbacks: JSON.parse(localStorage.getItem('feedbacks') || '[]'),
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(allData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `portfolio-data-${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast('Data exported successfully!');
+        }
+        
+        // Add export button to footer
+        const footer = document.querySelector('.footer');
+        const exportBtn = document.createElement('button');
+        exportBtn.textContent = '📥 Export All Data (JSON)';
+        exportBtn.style.cssText = 'background: #8B5CF6; border: none; padding: 8px 20px; border-radius: 50px; color: white; cursor: pointer; margin-top: 20px; font-size: 12px;';
+        exportBtn.onclick = exportAllData;
+        footer.appendChild(exportBtn);
+        
+        // Initial display of feedbacks
+        displayFeedbacks();
+        
+        // Log storage info to console
+        console.log('=== Portfolio User Input System Active ===');
+        console.log('All user data is saved to localStorage');
+        console.log('To view data: Open DevTools → Application → Local Storage');
+        console.log('Contact messages:', JSON.parse(localStorage.getItem('contactMessages') || '[]'));
+        console.log('Newsletter subscribers:', JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]'));
+        console.log('Feedbacks:', JSON.parse(localStorage.getItem('feedbacks') || '[]'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+{
+  "personal_info": {
+    "name": "Maryam Fatima",
+    "title": "Full Stack Developer",
+    "short_bio": "Full Stack Developer with hands-on expertise in React, Python, Flask, and modern UI systems.",
+    "full_bio": "Maryam Fatima — Full Stack Developer with hands-on expertise in React, Python, Flask, and modern UI systems. Currently interning at Technify Software Solution, Hyderabad, crafting scalable web solutions and elegant interfaces.",
+    "email": "maryamfatima28022003@gmail.com",
+    "phone": "+92 310 3024004",
+    "location": "Hyderabad, Pakistan",
+    "github": "https://github.com/maryamcodes",
+    "linkedin": "https://linkedin.com/in/maryam-fatima-dev",
+    "twitter": "",
+    "instagram": "",
+    "avatar": "MF",
+    "badge": "✨ Full Stack Developer | Creative Technologist"
+  },
+  "skills": {
+    "frontend": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5", "CSS3"],
+    "backend": ["Python", "Flask", "FastAPI", "Node.js", "REST APIs", "JWT"],
+    "database": ["MongoDB", "PostgreSQL", "SQLite", "Firebase"],
+    "tools": ["Git/GitHub", "Figma", "Jest", "Docker", "AWS Basics", "VS Code"]
+  },
+  "skills_flat": [
+    "React.js", "Next.js", "TypeScript", "Python", "Flask", "FastAPI",
+    "Tailwind CSS", "Node.js", "MongoDB", "PostgreSQL", "REST APIs",
+    "Git/GitHub", "Figma", "Jest", "Redux", "SQLite", "Docker", "HTML5", "CSS3"
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Full Stack Developer Intern",
+      "company": "Technify Software Solution",
+      "location": "Hyderabad",
+      "period": "2024 – Present",
+      "description": "Developing full-stack applications using React, Flask, PostgreSQL. Optimized frontend performance by 22%, mentored interns, built REST APIs and component libraries. Direct collaboration with design and product teams.",
+      "highlights": [
+        "Optimized frontend performance by 22%",
+        "Mentored 3 junior interns",
+        "Built 15+ REST API endpoints",
+        "Reduced load time by 30%"
+      ],
+      "icon": "⚡"
+    },
+    {
+      "id": 2,
+      "role": "Junior Frontend Developer",
+      "company": "Self-employed (Freelance)",
+      "location": "Remote",
+      "period": "2023 – 2024",
+      "description": "Designed responsive websites for startups, integrated CMS & third-party APIs. Built reusable components with Tailwind, React. Enhanced cross-browser compatibility and accessibility.",
+      "highlights": [
+        "Delivered 8+ client projects",
+        "Improved website performance by 35%",
+        "Implemented WCAG accessibility standards",
+        "90% client retention rate"
+      ],
+      "icon": "🌟"
+    },
+    {
+      "id": 3,
+      "role": "Open Source Contributor",
+      "company": "Various Open Source Projects",
+      "location": "Global",
+      "period": "2023 – Current",
+      "description": "Contributed to Python/JS open-source projects. Participated in 4+ hackathons, built prototype for ed-tech tool that won 'Best Innovation' at local hackathon.",
+      "highlights": [
+        "4+ hackathon participations",
+        "Won 'Best Innovation' award",
+        "50+ GitHub contributions",
+        "Collaborated with global developers"
+      ],
+      "icon": "🌍"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "TaskFlow Manager",
+      "description": "Full-stack productivity suite with Kanban board, real-time sync, team analytics, and role-based dashboards.",
+      "long_description": "A comprehensive task management application that helps teams organize work efficiently. Features include drag-and-drop Kanban board, real-time updates, team analytics dashboard, user roles and permissions, task comments and attachments, due date tracking with notifications. Built with modern technologies to ensure smooth user experience and scalable architecture.",
+      "technologies": ["React", "Flask", "SQLite", "JWT", "Socket.IO"],
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      "github": "https://github.com/maryamcodes/taskflow",
+      "live": "https://taskflow-demo.vercel.app",
+      "featured": true,
+      "year": "2024",
+      "category": "Full Stack"
+    },
+    {
+      "id": 2,
+      "title": "Portfolio Analytics Hub",
+      "description": "Interactive dashboard for creative metrics, integrated with GitHub API and real-time chart visualizations.",
+      "long_description": "Analytics dashboard that tracks portfolio performance, GitHub activity, and visitor metrics. Features real-time charts, data export, custom date ranges, and interactive visualizations. Provides insights into user behavior and content performance.",
+      "technologies": ["Next.js", "Chart.js", "MongoDB", "Tailwind CSS", "Vercel"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      "github": "https://github.com/maryamcodes/analytics-hub",
+      "live": "https://analytics-hub.vercel.app",
+      "featured": true,
+      "year": "2024",
+      "category": "Analytics"
+    },
+    {
+      "id": 3,
+      "title": "E-commerce UI Kit",
+      "description": "Fully responsive component library with dark mode, design tokens, and Storybook documentation.",
+      "long_description": "Production-ready component library for e-commerce applications. Includes 50+ components, dark mode support, design system documentation, accessibility compliant (WCAG 2.1), and performance optimized. Used by 3 production applications.",
+      "technologies": ["Tailwind CSS", "React", "Redux", "Storybook", "Jest"],
+      "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600&h=400&fit=crop",
+      "github": "https://github.com/maryamcodes/ecommerce-ui-kit",
+      "live": "https://ecommerce-ui-kit.vercel.app",
+      "featured": true,
+      "year": "2023",
+      "category": "UI/UX"
+    },
+    {
+      "id": 4,
+      "title": "GenAI Studio",
+      "description": "OpenAI powered copywriting assistant integrated with Flask backend and prompt engineering.",
+      "long_description": "AI-powered content generation tool that helps create marketing copy, blog posts, and social media content. Features multiple templates, custom prompt builder, content history, export options, and API integration. Built with Python Flask and OpenAI's GPT models.",
+      "technologies": ["Python", "OpenAI API", "Flask", "React", "Redis"],
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+      "github": "https://github.com/maryamcodes/genai-studio",
+      "live": "https://genai-studio.vercel.app",
+      "featured": true,
+      "year": "2024",
+      "category": "AI/ML"
+    }
+  ],
+  "stats": {
+    "projects_delivered": "10+",
+    "years_experience": "1+",
+    "technologies_mastered": "8",
+    "client_satisfaction": "99%",
+    "github_contributions": "50+",
+    "hackathon_wins": "2",
+    "happy_clients": "12",
+    "code_commits": "500+"
+  },
+  "contact_info": {
+    "email": "maryamfatima28022003@gmail.com",
+    "phone": "+92 310 3024004",
+    "location": "Hyderabad, Pakistan",
+    "working_hours": "Mon-Fri, 9AM - 6PM PKT",
+    "availability": "Open for freelance and full-time opportunities"
+  },
+  "social_links": {
+    "github": "https://github.com/maryamcodes",
+    "linkedin": "https://linkedin.com/in/maryam-fatima-dev",
+    "twitter": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "seo": {
+    "title": "Maryam Fatima - Full Stack Developer Portfolio",
+    "description": "Professional portfolio of Maryam Fatima, a Full Stack Developer specializing in React, Python, Flask, and modern web technologies. View projects, experience, and contact information.",
+    "keywords": "Full Stack Developer, React, Python, Flask, Portfolio, Web Developer, Maryam Fatima, Hyderabad, Pakistan",
+    "og_image": "https://your-domain.com/og-image.jpg",
+    "og_title": "Maryam Fatima | Full Stack Developer",
+    "og_description": "Building digital experiences with precision & soul"
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Ahmed Raza",
+      "role": "Project Manager, Technify",
+      "text": "Maryam is an exceptional developer who consistently delivers high-quality work. Her problem-solving skills and attention to detail are outstanding.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Sana Khan",
+      "role": "Product Designer",
+      "text": "Working with Maryam was a pleasure. She understands design requirements perfectly and implements them with clean, maintainable code.",
+      "rating": 5
+    }
+  ],
+  "theme": {
+    "primary_color": "#8B5CF6",
+    "secondary_color": "#3B82F6",
+    "accent_color": "#10B981",
+    "dark_bg": "#0A0C10",
+    "card_bg": "rgba(18, 22, 36, 0.8)",
+    "text_primary": "#EDF2FF",
+    "text_secondary": "#AAB5CE",
+    "gradient_start": "#CBD5FF",
+    "gradient_end": "#C9B6FF"
+  },
+  "version": "1.0.0",
+  "last_updated": "2025-01-15T10:30:00Z"
+}
